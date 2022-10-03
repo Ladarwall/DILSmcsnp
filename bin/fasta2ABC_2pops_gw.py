@@ -305,7 +305,7 @@ for line in fasta:
 		cnt += 1
 		propN = line.rstrip().count('N')/len(line.rstrip())
 		if propN <= max_N_tolerated:
-			if nameA in seqName[cnt] or nameB in seqName[cnt]:
+			if (nameA + '|') in seqName[cnt] or (nameB + '|') in seqName[cnt]:
 				outfile.write('>{id}\n{seq}\n'.format(id=seqName[cnt], seq=line.rstrip()))
 fasta.close()
 outfile.close()
